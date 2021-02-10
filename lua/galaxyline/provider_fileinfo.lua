@@ -165,6 +165,8 @@ function M.get_file_icon_color()
   if has_devicons then
     local icon, iconhl = devicons.get_icon(f_name, f_ext)
     if icon ~= nil then
+      local hi = require 'highlite'
+      print('highlite '..iconhl..' fg is >> '..Dump(hi.group(iconhl)))
       return vim.fn.synIDattr(vim.fn.hlID(iconhl), 'fg')
     end
   end
